@@ -22,17 +22,18 @@
 
 <p>
   <b>Time start:</b>
-  <%= @event.time_start %>
+  <%= @event.time_start.strftime('%r')%>
 </p>
 
 <p>
   <b>Time end:</b>
-  <%= @event.time_end %>
+  <%= @event.time_end.strftime('%r') %>
 </p>
 
 <p>
   <b>Image:</b>
-  <%= @event.image %>
+  <img src="<%= @event.image %>"/>
+  
 </p>
 
 

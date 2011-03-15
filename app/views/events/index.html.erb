@@ -22,7 +22,7 @@
     <td><%= event.date %></td>
     <td><%= event.time_start %></td>
     <td><%= event.time_end %></td>
-    <td><%= event.image %></td>
+    <td><img class='thumbnail' src="<%= event.image %>"/></td>
     <td><%= link_to 'Show', event %></td>
     <td><%= link_to 'Edit', edit_event_path(event) %></td>
     <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>

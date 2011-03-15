@@ -1,0 +1,13 @@
+
+@font-face {
+	font-family: 'Sapir';
+	src: url('regular.eot');
+	src: local('☺'), url('regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Sapir';
+	src: url('italic.eot');
+	src: local('☺'), url('italic.ttf') format('truetype');
+	font-style: italic;
+}

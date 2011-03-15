@@ -1,0 +1,117 @@
+/**
+ * General
+ *
+ */
+ #weebly_page_content_container div.paragraph, #weebly_page_content_container p, #weebly_page_content_container .product-description, .blog-sidebar div.paragraph, .blog-sidebar p{font-family:verdana !important;font-size:13px !important;color:#000000 !important;}
+ #weebly_page_content_container h2, #weebly_page_content_container .product-title, .blog-sidebar h2{font-family:'Sapir' !important;font-size:26px !important;color:#333333 !important;}
+ #weebly_site_title{}
+ #weebly_page_content_container a:link, .blog-sidebar a:link{color:#00b1d9 !important;}
+ #weebly_page_content_container a:visited, .blog-sidebar a:visited{color:#000099 !important;}
+ #weebly_page_content_container a:hover, .blog-sidebar a:hover{color:#33CCFF !important;}
+
+
+/**
+ * HEADER
+ *
+ */
+.weebly_header {
+    background-image: url('/images/header-logo.jpg') !important;
+    background-position: 0 0 !important;
+}
+
+
+/**
+ * FOOTER
+ *
+ */
+.weebly-footer {
+    position: relative !important;
+}
+
+.weebly-footer a {
+    position: relative !important;
+    z-index: 2 !important;
+    cursor: pointer;
+}
+
+.weebly-footer-dynamic {
+    position: relative !important;
+    display: inline-block !important;
+    width: 72px !important;
+    height: 1px !important;
+    vertical-align: middle !important;
+    background: url("http://static-cdn.weebly.com/images/weebly-footer-active.png") no-repeat -9999px 0; /* preload */
+    text-decoration: none !important;
+    border: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.weebly-footer-button {
+    position: absolute;
+    top: -14px;
+    left: 0;
+    display: block;
+    _display: inline-block;
+    width: 72px;
+    height: 29px;
+    background: url("http://static-cdn.weebly.com/images/weebly-footer.png") no-repeat;
+    _background: url(data:image/gif;base64,AAAA);
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static-cdn.weebly.com/images/weebly-footer.png', sizingMethod='crop');
+}
+
+.weebly-footer-hover .weebly-footer-button {
+    background: url("http://static-cdn.weebly.com/images/weebly-footer-active.png") no-repeat;
+    _background: url(data:image/gif;base64,AAAA);
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static-cdn.weebly.com/images/weebly-footer-active.png', sizingMethod='crop');
+}
+
+.weebly-footer-button-text {
+    display: none;
+}
+
+.weebly-footer-message {
+    display: none;
+    position: absolute;
+    top: -86px;
+    left: 1px;
+    width: 395px;
+    height: 98px;
+    _background: url(data:image/gif;base64,AAAA);
+}
+
+.weebly-footer-dynamic-hover .weebly-footer-message {
+    display: block;
+}
+
+.weebly-footer-right .weebly-footer-message {
+    left: -310px;
+}
+
+.weebly-footer-message-content {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 59px;
+    background: url("http://static-cdn.weebly.com/images/weebly-footer-content.png") no-repeat;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static-cdn.weebly.com/images/weebly-footer-content.png', sizingMethod='crop');
+}
+
+.weebly-footer-message-carrot {
+    position: relative;
+    left: 55px;
+    float: left;
+    display: block;
+    width: 12px;
+    height: 7px;
+    background: url("http://static-cdn.weebly.com/images/weebly-footer-carrot.png") no-repeat;
+    _background: none;
+    _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='http://static-cdn.weebly.com/images/weebly-footer-carrot.png', sizingMethod='crop');
+}
+
+.weebly-footer-right .weebly-footer-message-carrot {
+    left: 367px;
+}
+
+-->

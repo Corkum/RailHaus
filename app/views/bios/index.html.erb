@@ -6,36 +6,30 @@
 <% end %>
 </ul>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Position</th>
-    <th>Description</th>
-    <th>Photo</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @bios.each do |bio| %>
-  <tr>
-    
-    <td><a name="<%= bio.id %>"></a><%= bio.name %></td>
-    <td><%= bio.position %></td>
-    <td><%= bio.description %></td>
-    <td><% if bio.photo.exists? then %>
-	<%= image_tag bio.photo.url(:small) %>
-        <% else %>
-        <img src="images/no-bio.jpg"/>
-        <% end %>
-    </td>
+  <div class="person">
+    <div class="photo" style="float:left;margin-right: 5px;margin-bottom: 5px">
+      <% if bio.photo.exists? then %>
+      <%= image_tag bio.photo.url(:small) %>
+      <% else %>
+      <img src="images/no-bio.jpg"/>
+      <% end %>
+    </div>
 
-    <td><%= link_to 'Show', bio %></td>
-    <td><%= link_to 'Edit', edit_bio_path(bio) %></td>
-    <td><%= link_to 'Destroy', bio, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+    <div class="blurb">
+      <b><a name="<%= bio.id %>"></a><%= bio.position%> - <%= bio.name %></b><br />
+      <p><%= bio.description %></p>
+    </div>
+
+    <br clear="all"/>
+    <div style="float:right">
+      <%= link_to 'Show', bio %>
+      <%= link_to 'Edit', edit_bio_path(bio) %>
+      <%= link_to 'Destroy', bio, :confirm => 'Are you sure?', :method => :delete %>
+    </div>
+    <hr color="00b1d9" size="3" width="500"/>
+  </div>
 <% end %>
-</table>
 
 <br />
 

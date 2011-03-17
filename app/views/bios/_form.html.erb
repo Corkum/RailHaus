@@ -1,4 +1,4 @@
-<%= form_for(@bio) do |f| %>
+<%= form_for @bio, :html => { :multipart => true } do |f| %>
   <% if @bio.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@bio.errors.count, "error") %> prohibited this bio from being saved:</h2>
@@ -19,6 +19,11 @@
     <%= f.label :position %><br />
     <%= f.text_field :position %>
   </div>
+  <div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </div>
+
   <div class="field">
     <%= f.label :description %><br />
     <%= f.text_area :description %>

@@ -1,10 +1,17 @@
 <h1>Listing bios</h1>
 
+<ul>
+<% @bios.each do |bio| %>
+  <li><a href="#<%= bio.id%> "><%= bio.position %> - <%= bio.name %></a></li>
+<% end %>
+</ul>
+
 <table>
   <tr>
     <th>Name</th>
     <th>Position</th>
     <th>Description</th>
+    <th>Photo</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,9 +19,17 @@
 
 <% @bios.each do |bio| %>
   <tr>
-    <td><%= bio.name %></td>
+    
+    <td><a name="<%= bio.id %>"></a><%= bio.name %></td>
     <td><%= bio.position %></td>
     <td><%= bio.description %></td>
+    <td><% if bio.photo.exists? then %>
+	<%= image_tag bio.photo.url(:small) %>
+        <% else %>
+        <img src="images/no-bio.jpg"/>
+        <% end %>
+    </td>
+
     <td><%= link_to 'Show', bio %></td>
     <td><%= link_to 'Edit', edit_bio_path(bio) %></td>
     <td><%= link_to 'Destroy', bio, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -11,6 +11,12 @@
 </p>
 
 <p>
+  <b>Photo:</b><% if @bio.photo.exists? then %>
+	<%= image_tag @bio.photo.url(:small) %>
+        <% end %>
+</p>
+
+<p>
   <b>Description:</b>
   <%= @bio.description %>
 </p>

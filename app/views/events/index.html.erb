@@ -1,34 +1,30 @@
 <h1>Listing events</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Descripton</th>
-    <th>Location</th>
-    <th>Date</th>
-    <th>Time start</th>
-    <th>Time end</th>
-    <th>Image</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.descripton %></td>
-    <td><%= event.location %></td>
-    <td><%= event.date %></td>
-    <td><%= event.time_start %></td>
-    <td><%= event.time_end %></td>
-    <td><img class='thumbnail' src="<%= event.image %>"/></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+
+<h2  style=" text-align: left; ">
+  <span style="font-weight: bold;"><%= event.name %></span>
+</h2>
+<span class='imgPusher' style='float:left;height:0px'></span>
+<span style=' z-index: 10; position: relative; float: left; ;clear:left;margin-top:0px;*margin-top:0px'>
+  <a><img src="<%= event.image %>" style="margin-top: 5px; margin-bottom: 10px; margin-left: 0px; margin-right: 10px; border-width:1px;padding:3px;" alt="Picture" class="galleryImageBorder" /></a>
+  <div style="display: block; font-size: 90%; margin-top: -10px; margin-bottom: 10px; text-align: center;"></div>
+</span>
+<div  class="paragraph editable-text" style=" text-align: left; display: block; ">
+  Where: <%= event.location %><br />
+  When: <%= event.date %><br />
+  <%= event.time_start.strftime('%r') %> - <%= event.time_end.strftime('%r') %><br />
+  <br />
+  <span></span>
+  <span><%= event.descripton %></span><br />
+</div>
+<br clear="all"/>
+<div style="float:right">
+<%= link_to 'Show', event %>
+<%= link_to 'Edit', edit_event_path(event) %>
+<%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+<hr color="00b1d9" size="3" width="500"/>
 <% end %>
-</table>
 
 <br />
 

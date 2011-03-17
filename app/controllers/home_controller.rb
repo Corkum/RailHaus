@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @event = Event.find(1)
+    @events = Event.order("date DESC").limit(2)
 
     respond_to do |format|
       format.html # show.html.erb

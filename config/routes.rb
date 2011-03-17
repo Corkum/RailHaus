@@ -1,4 +1,6 @@
 Haus::Application.routes.draw do
+  resources :bios
+
   resources :events
 
   get "home/index"

@@ -31,9 +31,10 @@
 </p>
 
 <p>
-  <b>Image:</b>
-  <img src="<%= @event.image %>"/>
-  
+  <b>Photo:</b>
+  <% if @event.photo.exists? then %>
+   <%= image_tag @event.photo.url(:small) %>
+  <% end %>  
 </p>
 
 

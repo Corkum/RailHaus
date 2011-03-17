@@ -1,4 +1,4 @@
-<%= form_for(@event) do |f| %>
+<%= form_for @event, :html => { :multipart => true} do |f| %>
   <% if @event.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
@@ -24,6 +24,10 @@
     <%= f.text_field :location %>
   </div>
   <div class="field">
+    <%= f.label :photo %>
+    <%= f.file_field :photo %>
+  </div>
+  <div class="field">
     <%= f.label :date %><br />
     <%= f.date_select :date %>
   </div>
@@ -34,10 +38,6 @@
   <div class="field">
     <%= f.label :time_end %><br />
     <%= f.time_select :time_end %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.text_field :image %>
   </div>
   <div class="actions">
     <%= f.submit %>

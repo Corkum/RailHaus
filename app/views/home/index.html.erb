@@ -11,7 +11,10 @@
 <% @events.each do |event| %>
           <h2  style=" text-align: left; "><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= event.name %></span><br /></h2>
           <span class='imgPusher' style='float:right;height:0px'></span>
-          <span style=' position: relative; z-index: 10; float: right; ;clear:right;margin-top:0px;*margin-top:0px'><a><img src="<%= event.image %>" style="margin-top: 5px; margin-bottom: 10px; margin-left: 10px; margin-right: 0px; border-width:1px;padding:3px;" alt="Picture" class="galleryImageBorder" /></a>
+          <span style=' position: relative; z-index: 10; float: right; ;clear:right;margin-top:0px;*margin-top:0px'>
+            <% if event.photo.exists? then %>
+   <%= image_tag event.photo.url(:small) %>
+  <% end %>
             <div style="display: block; font-size: 90%; margin-top: -10px; margin-bottom: 10px; text-align: center;"></div>
           </span>
           <div  class="paragraph editable-text" style=" text-align: center; display: block; "><span></span>

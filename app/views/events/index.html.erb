@@ -6,7 +6,9 @@
 </h2>
 <span class='imgPusher' style='float:left;height:0px'></span>
 <span style=' z-index: 10; position: relative; float: left; ;clear:left;margin-top:0px;*margin-top:0px'>
-  <a><img src="<%= event.image %>" style="margin-top: 5px; margin-bottom: 10px; margin-left: 0px; margin-right: 10px; border-width:1px;padding:3px;" alt="Picture" class="galleryImageBorder" /></a>
+  <% if event.photo.exists? then %>
+   <%= image_tag event.photo.url(:small) %>
+  <% end %>
   <div style="display: block; font-size: 90%; margin-top: -10px; margin-bottom: 10px; text-align: center;"></div>
 </span>
 <div  class="paragraph editable-text" style=" text-align: left; display: block; ">

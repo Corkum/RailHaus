@@ -12,11 +12,7 @@
     <meta property='og:url' content='http://cloudhaus.weebly.com/' />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-    <%= stylesheet_link_tag :all %>
-    <%= javascript_include_tag :defaults %>
-    <%= csrf_meta_tag %>
-
-    <link rel='stylesheet' type='text/css' href='http://cloudhaus.weebly.com/files/main_style.css' title='weebly-theme-css' />
+    <!--<link rel='stylesheet' type='text/css' href='http://cloudhaus.weebly.com/files/main_style.css'/>-->
     <script type='text/javascript'><!--
       var STATIC_BASE = 'http://cdn1.weebly.com/';
       //-->
@@ -29,7 +25,15 @@
     <script type='text/javascript'><!--
       if (Prototype.Browser.IE) window.onload=initFlyouts; else document.observe('dom:loaded', initFlyouts);
       -->
-    </script> 
+    </script>
+
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+
+    <style type="text/css">
+      .highlighted a { color: white;}
+    </style>
   </head>
 
   <body class="weeblypage-index" >
@@ -45,13 +49,13 @@
           <div class="nav2 br">
             <div id="navdiv">
               <ul id="navlist">
-                <li id="active"><a href="/">Home</a></li>
-                <li id='pg811928695624933099'><a href="/events">Events</a></li>
-                <li id='pg531282649685063223'><a href="/gallery">Gallery</a></li>
-                <li id='pg334385835587527032'><a href="/leadership">Leadership</a></li>
-                <li id='pg302224951461178011'><a href="/bios">Bios</a></li>
-                <li id='pg992960735367297134'><a href="/links">Links</a></li>
-                <li id='pg662229316604799891'><a href="/contact-us">Contact Us</a></li>
+                <li id="<%= "active" if params[:controller] == "home" %>"><a href="/">Home</a></li>
+                <li id="<%= "active" if params[:controller] == "events" %>"><a href="/events">Events</a></li>
+                <li id="<%= "active" if params[:controller] == "gallery" %>"><a href="/gallery">Gallery</a></li>
+                <li id="<%= "active" if params[:controller] == "leadership" %>"><a href="/leadership">Leadership</a></li>
+                <li id="<%= "active" if params[:controller] == "bios" %>"><a href="/bios">Bios</a></li>
+                <li id="<%= "active" if params[:controller] == "links" %>"><a href="/links">Links</a></li>
+                <li id="<%= "active" if params[:controller] == "contact-us" %>"><a href="/contact-us">Contact Us</a></li>
               </ul>
             </div>
           </div>

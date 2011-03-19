@@ -2,7 +2,7 @@
 <% @events.each do |event| %>
 
 <h2  style=" text-align: left; ">
-  <span style="font-weight: bold;"><%= event.name %></span>
+  <span style="font-weight: bold;"><%= link_to event.name, event %></span>
 </h2>
 <span class='imgPusher' style='float:left;height:0px'></span>
 <span style=' z-index: 10; position: relative; float: left; ;clear:left;margin-top:0px;*margin-top:0px'>

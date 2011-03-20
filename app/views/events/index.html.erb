@@ -14,13 +14,7 @@
       </div>
       <div class="details">
         Where: <a class="map" href="#GoogleMaps"><%= event.location %></a><br />
-        When: <%= event.date %> 
-        <% if event.date < Date.today() then %>
-          <i>(was <%=  time_ago_in_words(event.date, false) %> ago)</i>
-        <% elsif event.date > Date.today() then %>
-          <i>in <%=  time_ago_in_words(event.date, false) %></i>
-        <% end %>
-        <br />
+        When: <%= event.date %><i> <%= event_time_ago(event[:date]) %></i><br />
         Hours: <%= event.time_start.strftime('%r') %> - <%= event.time_end.strftime('%r') %><br />
         <br />
         <span></span>

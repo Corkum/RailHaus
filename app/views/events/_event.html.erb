@@ -5,6 +5,8 @@
   <div class="photo">
     <% if event.photo.exists? then %>
       <%= image_tag event.photo.url(:small) %>
+    <% else %>
+      <img src="images/no-bio.jpg"/>
     <% end %>
   </div>
   <div class="details">

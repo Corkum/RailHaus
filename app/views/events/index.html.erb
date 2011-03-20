@@ -1,33 +1,43 @@
 <h1>Listing events</h1>
-<% @events.each do |event| %>
+<div class="events">
+  <hr/>
+  <% @events.each do |event| %>
 
-<h2  style=" text-align: left; ">
-  <span style="font-weight: bold;"><%= link_to event.name, event %></span>
-</h2>
-<span class='imgPusher' style='float:left;height:0px'></span>
-<span style=' z-index: 10; position: relative; float: left; ;clear:left;margin-top:0px;*margin-top:0px'>
-  <% if event.photo.exists? then %>
-   <%= image_tag event.photo.url(:small) %>
+    <div class="event">
+      <h2 class="title">
+        <%= link_to event.name, event %>
+      </h2>
+      <div class="photo">
+        <% if event.photo.exists? then %>
+          <%= image_tag event.photo.url(:small) %>
+        <% end %>
+      </div>
+      <div class="details">
+        Where: <a class="map" href="#GoogleMaps"><%= event.location %></a><br />
+        When: <%= event.date %> 
+        <% if event.date < Date.today() then %>
+          <i>(was <%=  time_ago_in_words(event.date, false) %> ago)</i>
+        <% elsif event.date > Date.today() then %>
+          <i>in <%=  time_ago_in_words(event.date, false) %></i>
+        <% end %>
+        <br />
+        Hours: <%= event.time_start.strftime('%r') %> - <%= event.time_end.strftime('%r') %><br />
+        <br />
+        <span></span>
+        <span><%= event.descripton %></span><br />
+      </div>
+      <br clear="all"/>
+      <div style="float:right">
+        <%= link_to 'Show', event %>
+        <%= link_to 'Edit', edit_event_path(event) %>
+        <%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %>
+      </div>
+      <hr color="00b1d9" size="3" width="500"/>
+    </div>
+
+
   <% end %>
-  <div style="display: block; font-size: 90%; margin-top: -10px; margin-bottom: 10px; text-align: center;"></div>
-</span>
-<div  class="paragraph editable-text" style=" text-align: left; display: block; ">
-  Where: <%= event.location %><br />
-  When: <%= event.date %><br />
-  <%= event.time_start.strftime('%r') %> - <%= event.time_end.strftime('%r') %><br />
-  <br />
-  <span></span>
-  <span><%= event.descripton %></span><br />
 </div>
-<br clear="all"/>
-<div style="float:right">
-<%= link_to 'Show', event %>
-<%= link_to 'Edit', edit_event_path(event) %>
-<%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %>
-  </div>
-<hr color="00b1d9" size="3" width="500"/>
-<% end %>
-
 <br />
 
 <%= link_to 'New Event', new_event_path %>

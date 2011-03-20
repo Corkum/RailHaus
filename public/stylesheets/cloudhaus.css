@@ -7,3 +7,28 @@ img.thumbnail
 .highlighted a {
     color:white;
 }*/
+
+.events {
+
+}
+
+.event {
+    /*width:95%;*/
+}
+
+.event h2.title {
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+.event .photo {
+    max-width:290px;
+    float: left;
+}
+
+.event .photo img { max-width: 290px;}
+.event .details {
+    width: 350px;
+    float:right;
+    padding-bottom:10px;
+}

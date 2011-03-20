@@ -22,13 +22,13 @@ img.thumbnail
 }
 
 .event .photo {
-    max-width:290px;
+    width:20%;
     float: left;
 }
 
-.event .photo img { max-width: 290px;}
+.event .photo img { max-width: 250px;}
 .event .details {
-    width: 350px;
+    width: 60%;
     float:right;
     padding-bottom:10px;
 }

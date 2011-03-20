@@ -1,36 +1,7 @@
 <h1>Listing events</h1>
+<hr/>
 <div class="events">
-  <hr/>
-  <% @events.each do |event| %>
-
-    <div class="event">
-      <h2 class="title">
-        <%= link_to event.name, event %>
-      </h2>
-      <div class="photo">
-        <% if event.photo.exists? then %>
-          <%= image_tag event.photo.url(:small) %>
-        <% end %>
-      </div>
-      <div class="details">
-        Where: <a class="map" href="#GoogleMaps"><%= event.location %></a><br />
-        When: <%= event.date %><i> <%= event_time_ago(event[:date]) %></i><br />
-        Hours: <%= event.time_start.strftime('%r') %> - <%= event.time_end.strftime('%r') %><br />
-        <br />
-        <span></span>
-        <span><%= event.descripton %></span><br />
-      </div>
-      <br clear="all"/>
-      <div style="float:right">
-        <%= link_to 'Show', event %>
-        <%= link_to 'Edit', edit_event_path(event) %>
-        <%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %>
-      </div>
-      <hr color="00b1d9" size="3" width="500"/>
-    </div>
-
-
-  <% end %>
+  <%= render :partial => "events/event", :collection => @events %>
 </div>
 <br />
 

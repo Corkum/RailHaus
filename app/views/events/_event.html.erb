@@ -1,0 +1,25 @@
+<div class="event">
+  <h2 class="title">
+    <%= link_to event.name, event %>
+  </h2>
+  <div class="photo">
+    <% if event.photo.exists? then %>
+      <%= image_tag event.photo.url(:small) %>
+    <% end %>
+  </div>
+  <div class="details">
+    Where: <a class="map" href="#GoogleMaps"><%= event.location %></a><br />
+    When: <%= event.date.strftime('%A, %B %e  %Y') %><i> <%= event_time_ago(event[:date]) %></i><br />
+    Hours: <%= event.time_start.strftime('%l:%M %p') %> - <%= event.time_end.strftime('%l:%M %p') %><br />
+    <br />
+    <span></span>
+    <span><%= event.descripton %></span><br />
+  </div>
+  <br clear="all"/>
+  <div style="float:right">
+    <%= link_to 'Show', event %>
+    <%= link_to 'Edit', edit_event_path(event) %>
+    <%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %>
+  </div>
+  <hr color="00b1d9" size="3" width="500"/>
+</div>

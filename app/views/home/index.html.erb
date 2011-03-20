@@ -6,27 +6,12 @@
       sponsor, and participate in community-building events that promote and facilitate the creation of art. Whenever possible, these activities also include humanitarian goals to raise money for specifically targeted local charities.&nbsp;    </font>
   </div>
           <hr color="00b1d9" size="3" width="500"/>
-          <div  class="paragraph editable-text" style=" text-align: left; ">&nbsp; Look Forward to The Great Columbus Scavenger Hunt coming Oct. 2011<br /><span>&nbsp; </span>Our Most Recent Event Was<br /></div>
+          <div  class="paragraph editable-text" style=" text-align: left; ">&nbsp; Look Forward to The Great Columbus Scavenger Hunt coming Oct. 2011
+            <br /><span>&nbsp; </span>Our Most Recent Event Was<br /></div>
 
-<% @events.each do |event| %>
-          <h2  style=" text-align: left; "><span style="font-weight: bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= link_to event.name, event %></span><br /></h2>
-          <span class='imgPusher' style='float:right;height:0px'></span>
-          <span style=' position: relative; z-index: 10; float: right; ;clear:right;margin-top:0px;*margin-top:0px'>
-            <% if event.photo.exists? then %>
-   <%= image_tag event.photo.url(:small) %>
-  <% end %>
-            <div style="display: block; font-size: 90%; margin-top: -10px; margin-bottom: 10px; text-align: center;"></div>
-          </span>
-          <div  class="paragraph editable-text" style=" text-align: center; display: block; "><span></span>
-            <br />
-            <span></span>Where:&nbsp; <%= event.location %>
-            <br /><br />When:&nbsp; <%= event.date %><br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <%= event.time_start.strftime('%r') + " - " + event.time_end.strftime('%r')%><br />
-            <br /><span></span><span style="font-weight: bold;"><%= event.descripton %> </span>
-            <br /></div>
-          <hr  style=" clear: both; width: 100%; visibility: hidden; "></hr>
-          <hr color="00b1d9" size="3" width="500"/>
-<% end %>
+<div class="events">
+  <%= render :partial => "events/event", :collection => @events %>
+</div>
 
         </div>
       </div>

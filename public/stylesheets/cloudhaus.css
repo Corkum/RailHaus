@@ -32,3 +32,15 @@ img.thumbnail
     float:right;
     padding-bottom:10px;
 }
+
+
+.gallery .entry {
+    float:left;
+    width:290px;
+    padding:5px;
+}
+.gallery .entry .title {
+    color:grey;
+    text-align: center;
+    margin-top: -5px;
+}

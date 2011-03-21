@@ -12,8 +12,10 @@ client = GData::Client::Photos.new
 # Get Love Cloudhaus album
 #feed = client.get('https://picasaweb.google.com/data/feed/api/user/Arndt85/albumid/5579132685303810961').to_xml
 #album = 'https://picasaweb.google.com/data/entry/api/user/Arndt85/albumid/5579132685303810961'
-url = "https://picasaweb.google.com/data/feed/api/user/Arndt85/albumid/5579132685303810961?v=2.0&fields=entry(title,media:group(media:thumbnail))"
-feed = client.get(url).to_xml
+url = "https://picasaweb.google.com/data/feed/api/user/Arndt85/albumid/5579132685303810961"
+params = "?v=2.0&fields=entry(title,media:group(media:thumbnail))&thumbsize=288c"
+
+feed = client.get(url+params).to_xml
 #entry(
 #     title,
 #     gphoto:numphotos,
@@ -21,34 +23,22 @@ feed = client.get(url).to_xml
 #     link[@rel='http://schemas.google.com/g/2005#feed'](@href)
 #     )").to_xml
 %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>thumbs</th>
-  </tr>
-<%
-feed.elements.each('entry') do |entry| %>
-  <tr>
-    <!-- <%= entry %> -->
-    <td><%= entry.elements['title'].text %></td>
-    <% entry.elements['media:group(media:thumbnail)'].each() do |thumb| %>
-      <td><img src="<%= thumb.attribute('url').value %>"/></td>
-    <% end %>
-  </tr>
-
+<div class="gallery">
   <%
+  feed.elements.each('entry') do |entry| %>
+    <div class="entry">
+      <% entry.elements['media:group(media:thumbnail)'].each() do |thumb| %>
+        <div class="photo">
+          <img src="<%= thumb.attribute('url').value %>"/>
+        </div>
+      <% end %>
+      <div class="title"><%= entry.elements['title'].text %></div>
+    </div>
+  <% end %>
+</div>
 
-  # Extract the href value from each <atom:link>
-  links = {}
-  entry.elements.each('link') do |link|
-    links[link.attribute('rel').value] = link.attribute('href').value
-  end
-  puts links.to_s
-end
-%>
-
-</table>
-
-
-<%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+<br clear="all"/>
+<div class="actions">
+  <%= link_to 'Edit', edit_event_path(@event) %> |
+  <%= link_to 'Back', events_path %>
+</div>

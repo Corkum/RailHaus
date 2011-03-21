@@ -7,6 +7,7 @@ gem 'rails', '3.0.4'
 
 gem 'sqlite3'
 gem 'paperclip', :git => 'http://github.com/thoughtbot/paperclip.git'
+gem 'gdata'
 # Use unicorn as the web server
 # gem 'unicorn'
 

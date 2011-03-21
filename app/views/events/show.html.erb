@@ -1,41 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @event.name %>
-</p>
-
-<p>
-  <b>Descripton:</b>
-  <%= @event.descripton %>
-</p>
-
-<p>
-  <b>Location:</b>
-  <%= @event.location %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @event.date %>
-</p>
-
-<p>
-  <b>Time start:</b>
-  <%= @event.time_start.strftime('%r')%>
-</p>
-
-<p>
-  <b>Time end:</b>
-  <%= @event.time_end.strftime('%r') %>
-</p>
-
-<p>
-  <b>Photo:</b>
-  <% if @event.photo.exists? then %>
-   <%= image_tag @event.photo.url(:small) %>
-  <% end %>  
-</p>
+<div class="events">
+  <%= render :partial => "events/event", :locals => { :event => @event } %>
+</div>
 
 <%
 client = GData::Client::Photos.new

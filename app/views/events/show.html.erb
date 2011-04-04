@@ -23,6 +23,7 @@ feed = client.get(url+params).to_xml
 #     link[@rel='http://schemas.google.com/g/2005#feed'](@href)
 #     )").to_xml
 %>
+<br/>
 <div class="gallery">
   <%
   feed.elements.each('entry') do |entry| %>
